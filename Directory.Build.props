@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <WarningsAsErrors>nullable</WarningsAsErrors>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <PublishAot>True</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>

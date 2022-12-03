@@ -1,7 +1,10 @@
+using System.Runtime.CompilerServices;
+
 namespace Helpers;
 
 public static class Extensions
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<Memory<T>> Split<T>(this Memory<T> source, ReadOnlyMemory<T> separator)
         where T : IEquatable<T>
     {
@@ -27,6 +30,7 @@ public static class Extensions
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<ReadOnlyMemory<T>> Split<T>(this ReadOnlyMemory<T> source, ReadOnlyMemory<T> separator)
         where T : IEquatable<T>
     {

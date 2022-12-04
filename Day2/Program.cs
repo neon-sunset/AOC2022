@@ -11,7 +11,7 @@
 var start = Stopwatch.GetTimestamp();
 
 var input = File.ReadAllLines("Input");
-var (part1, part2) = input.Aggregate((default(int), default(int)), (scores, line) =>
+var (part1, part2) = input.Aggregate((0, 0), (scores, line) =>
 {
     var (scorePart1, scorePart2) = scores;
     var (arg1, arg2) = (line[0], line[2]);
@@ -30,7 +30,9 @@ var (part1, part2) = input.Aggregate((default(int), default(int)), (scores, line
     return (scorePart1, scorePart2);
 });
 
-Console.WriteLine($"Part1: {part1}; Part2: {part2}. Elapsed: {Stopwatch.GetElapsedTime(start).TotalMicroseconds}us\n");
+Console.WriteLine(
+    $"Part1: {part1}; Part2: {part2}." +
+    $"Elapsed: {Stopwatch.GetElapsedTime(start).TotalMicroseconds}us\n");
 
 // Disclaimer: I am *really* bad at math
 int CalculateScore(int opponent, int player)

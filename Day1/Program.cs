@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Helpers;
 
 var input = File.ReadAllText("Input");

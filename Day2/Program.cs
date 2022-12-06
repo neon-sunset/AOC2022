@@ -35,7 +35,7 @@ Console.WriteLine(
     $"Elapsed: {Stopwatch.GetElapsedTime(start).TotalMicroseconds}us\n");
 
 // Disclaimer: I am *really* bad at math
-int CalculateScore(int opponent, int player)
+static int CalculateScore(int opponent, int player)
 {
     var score = (((opponent - player) % 3) + 2) switch
     {

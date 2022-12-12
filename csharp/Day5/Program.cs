@@ -4,7 +4,7 @@ using Helpers;
 var start = Stopwatch.GetTimestamp();
 var input = File.ReadAllLines("Input");
 
-var createStacks = () => input
+var stacks = input
     .Take(8)
     .Reverse()
     .Aggregate(new Stack<char>[9], (stacks, line) =>
@@ -24,8 +24,9 @@ var createStacks = () => input
         return stacks;
     });
 
-var stacks = createStacks();
-var lists = createStacks().Select(s => s.Reverse().ToList()).ToArray();
+var lists = stacks
+    .Select(s => s.Reverse().ToList())
+    .ToArray();
 
 var moves = input
     .Skip(10)

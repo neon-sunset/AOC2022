@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace Helpers;
 
 public static class Extensions

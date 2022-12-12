@@ -1,12 +1,8 @@
-use std::{fs::File, io::Read, time::Instant};
+use std::time::Instant;
 
 fn main() -> Result<(), anyhow::Error> {
     let start = Instant::now();
-
-    let mut file = File::open("Input")?;
-    let mut text = String::with_capacity(file.metadata()?.len() as usize);
-
-    file.read_to_string(&mut text)?;
+    let text = utils::get_input()?;
 
     let (full, partial) = text.lines().fold((0, 0), |counts, line| {
         let split = line.split_once(',').unwrap();
@@ -17,12 +13,7 @@ fn main() -> Result<(), anyhow::Error> {
         // Unlike .NET's NativeAOT, LLVM does a much better job here.
         // Unlike LLVM however, .NET's compilers do not have all the time in the universe
         // and generally assume JIT scenario - NativeAOT is a very recent addition.
-        let full = x1 == y1
-            || (match x1 < y1 {
-                true => x2 >= y2,
-                false => x2 <= y2,
-            });
-
+        let full = x1 == y1 || (x1 < y1 && x2 >= y2) || (x1 > y1 && x2 <= y2);
         let partial = full || (x1 <= y2 && y1 <= x2);
 
         return match (full, partial) {

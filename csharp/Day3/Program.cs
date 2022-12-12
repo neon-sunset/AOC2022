@@ -12,12 +12,11 @@ public static class Program
     public static void Main()
     {
         var start = Stopwatch.GetTimestamp();
-
         var input = File.ReadAllLines("Input");
+
         var sum1 = input.Sum(line =>
         {
             var span = MemoryMarshal.Cast<char, ushort>(line);
-
             var commonChar = FindCommonChar(span);
 
             return GetPriority(commonChar);
